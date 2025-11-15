@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="true"
      inkscape:deskcolor="#141414"
      inkscape:document-units="px"
-     inkscape:zoom="1.55"
-     inkscape:cx="939.67742"
-     inkscape:cy="504.83871"
+     inkscape:zoom="0.775"
+     inkscape:cx="847.74194"
+     inkscape:cy="520.64516"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -35,14 +35,10 @@
   <defs
      id="defs1" />
   <text
-     xml:space="preserve"
      style="font-weight:800;font-size:84.0328px;line-height:1.1;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Ultra-Bold';text-align:center;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:#ffffff;stroke-width:12.1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
-     x="960"
-     y="540"
-     id="text1"><tspan
-       sodipodi:role="line"
-       x="960"
-       y="540"
-       style="stroke:#ffffff;stroke-width:12.1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
-       id="tspan2">PLACEHOLDER</tspan></text>
+     id="text1">
+     <tspan sodipodi:role="line" x="0" y="0" id="tspan2">PLACEHOLDER</tspan>
+     <tspan sodipodi:role="line" x="0" y="1.1em" id="tspan2">PLACEHOLDER</tspan>
+     <tspan sodipodi:role="line" x="0" y="2.2em" id="tspan2">PLACEHOLDER</tspan>
+  </text>
 </svg>
