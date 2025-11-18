@@ -1,7 +1,9 @@
 {
   "contents": [
-    "apple|is great|but banana|is worse",
-    "apple +|cherry",
-    "cherry"
-  ]
+    "Hello world!",
+    "Digital|art",
+    "Python|Inkscape"
+  ],
+  "dpi": 300,
+  "style": "font-weight:800;font-size:84.0328px;line-height:1.1;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Ultra-Bold';text-align:center;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:#ffffff;stroke-width:12.1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
 }

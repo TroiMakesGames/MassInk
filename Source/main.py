@@ -1,3 +1,6 @@
+inkscapePath = r"C:\Program Files\Inkscape\bin\inkscape.exe"
+contentsJsonpath = "Source/contents.json"
+
 import shutil
 import pathlib
 import subprocess
@@ -11,6 +14,16 @@ def readJsonContents(filepath):
         data = json.load(f)
     return data.get("contents", [])
 
+def readJsonStyle(filepath):
+    with open(filepath, "r") as f:
+        data = json.load(f)
+    return data.get("style", [])
+
+def readJsonDPI(filepath):
+    with open(filepath, "r") as f:
+        data = json.load(f)
+    return data.get("dpi", [])
+
 def moveFile(filePath, destinationPath):
     #convert string path to lib path
     filePath = pathlib.Path(filePath)
@@ -22,7 +35,7 @@ def moveFile(filePath, destinationPath):
     destination = destinationPath / filePath.name
     shutil.move(str(filePath), str(destination))
 
-def exportSVGasPNG(inkscapePath, svgPath, pngPath):
+def exportSVGasPNG(inkscapePath, svgPath, pngPath, dpi):
     svg_path = pathlib.Path(svgPath)
     png_path = pathlib.Path(pngPath)
     inkscape_path = pathlib.Path(inkscapePath)
@@ -33,7 +46,7 @@ def exportSVGasPNG(inkscapePath, svgPath, pngPath):
           f'--export-filename="{png_path}" ' \
           f'--export-id=text1 ' \
           f'--export-id-only ' \
-          f'--export-dpi=300'
+          f'--export-dpi={dpi}'
 
     subprocess.run(command, shell=True, check=True)
 
@@ -59,15 +72,17 @@ def generateTspans(outputString):
     
     return tspanString
 
-def generateNewSVG(svgCode, tspanString, outputSVGname):
+def generateNewSVG(svgCode, tspanString, outputSVGname, styleString):
+    #replace style placeholder with correct svg format code
+    svgCode = svgCode.replace("stylePLACEHOLDER", styleString)
     #replace placeholder with the correct svg fromat code
-    svgCode = svgCode.replace("PLACEHOLDER", tspanString)
+    svgCode = svgCode.replace("tspanPLACEHOLDER", tspanString)
 
     #generate a new svg with the right output text
     with open(outputSVGname, "w", encoding="utf-8") as f:
         f.write(svgCode)
 
-def singleAssetPipeline(svgPath, outputString, outputSVGdestination, outputSVGname, inkscapePath, outputPNGdestination, outputPNGname):
+def singleAssetPipeline(svgPath, outputString, outputSVGdestination, outputSVGname, inkscapePath, outputPNGdestination, outputPNGname, styleString, dpi):
     """
     -duplicate style svg code for replacing and svg format style
     -generate tspan svg code from the python string
@@ -80,11 +95,11 @@ def singleAssetPipeline(svgPath, outputString, outputSVGdestination, outputSVGna
 
     tspanString = generateTspans(outputString)
 
-    generateNewSVG(svg, tspanString, outputSVGname)
+    generateNewSVG(svg, tspanString, outputSVGname, styleString)
 
     #export the new svg as png
     pngPaths = outputPNGdestination + "/" + outputPNGname
-    exportSVGasPNG(inkscapePath, outputSVGname, pngPaths)
+    exportSVGasPNG(inkscapePath, outputSVGname, pngPaths, dpi)
 
     #move new svg to SVGs
     moveFile(outputSVGname, outputSVGdestination)
@@ -93,10 +108,23 @@ def singleAssetPipeline(svgPath, outputString, outputSVGdestination, outputSVGna
 
 #multiple assets pipeline:
 
-contentStrings = readJsonContents("Source/contents.json")
+"""
+the user should be required to enter:
+-inkscape path                  (Hardcoded)
+-project contents.json path     (Hardcoded)
+
+contents.json should contain:
+-string array with corret seperators for newline whitespace ("|")
+-style string                   (inkscape svg format as string but only whats inside " ")
+-output DPI                     (int)
+"""
+
+contentStrings = readJsonContents(contentsJsonpath)
+contentStyle = readJsonStyle(contentsJsonpath)
+dpi = readJsonDPI(contentsJsonpath)
 
 for i in range(len(contentStrings)):
     svgName = "output" + str(i) + ".svg"
     pngName = "output" + str(i) + ".png"
 
-    singleAssetPipeline("Source/style.svg", contentStrings[i], "Source/SVGs", svgName, r"C:\Program Files\Inkscape\bin\inkscape.exe", "Source/PNGs", pngName)
+    singleAssetPipeline("Source/style.svg", contentStrings[i], "Source/SVGs", svgName, inkscapePath, "Source/PNGs", pngName, contentStyle, dpi)
