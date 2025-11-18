@@ -8,12 +8,12 @@ Inkscape allows for amazing text customization - but its not great when you have
 MassInk fixes that issue ...
 The user can manualy create a single SVG file containing a text element with the desired style/look (color, width, stroke...) while MassInk applies that style to the large set of text/strings automaticaly and exports the result
 
-HOW TO USE:
-in main.py replace `inkscapePath` with the path to your inkscape.exe installation
-in main.py replace `contentsJsonPath` with the path to the JSON file with the correct data format
+HOW TO USE:<br>
+in main.py replace `inkscapePath` with the path to your inkscape.exe installation<br>
+in main.py replace `contentsJsonPath` with the path to the JSON file with the correct data format<br>
 -by default the contentsJsonPath is set to the already existing contents.json with example data
 
-json data format:
+json data format:<br>
 contents - an array of strings where each string is an individual asset
 -since inkscape doesnt support `\n` newline whitespace the `|` substitue is used
 
