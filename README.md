@@ -10,7 +10,7 @@ The user can manualy create a single SVG file containing a text element with the
 
 # Python standalone script
 
-MassInk is currently only available as a python standalone script found in [Python](./Paython)<br>
+MassInk is currently only available as a python standalone script found in [Python](./Python)<br>
 
 HOW TO USE:<br>
 in main.py replace `inkscapePath` with the path to your inkscape.exe installation<br>
