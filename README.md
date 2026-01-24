@@ -10,6 +10,8 @@ The user can manualy create a single SVG file containing a text element with the
 
 # Python standalone script
 
+MassInk is currently only available as a python standalone script found in [Python](./Paython)<br>
+
 HOW TO USE:<br>
 in main.py replace `inkscapePath` with the path to your inkscape.exe installation<br>
 in main.py replace `contentsJsonPath` with the path to the JSON file with the correct data format<br>
@@ -22,4 +24,4 @@ contents - an array of strings where each string is an individual asset
 dpi - integer of "dots per inch" setting for the image export resolution
 
 style - inkscapes/CSS/svg style format for styling text
--note that this hould include only text inside the quotation marks (use existing contents.json as an example)
+-note that this should include only text inside the quotation marks (use existing contents.json as an example)
