@@ -1,0 +1,33 @@
+<inkscape-extension
+    xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+
+  <name>MassInk</name>
+  <id>game-dev.mass-ink-export-tool</id>
+
+  <param name="strings"
+        type="string"
+        multiline="true"
+        gui-text="Text lines (use | for line breaks)"/>
+
+  <param name="prefix"
+        type="string"
+        gui-text="Filename prefix"
+        default="text_"/>
+
+  <param name="output"
+        type="string"
+        multiline="false"
+        gui-text="Text lines (use | for line breaks)"/>
+
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Game Dev"/>
+    </effects-menu>
+  </effect>
+
+  <script>
+    <command interpreter="python" reldir="extensions">massink.py</command>
+  </script>
+
+</inkscape-extension>
