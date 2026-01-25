@@ -4,22 +4,20 @@
   <name>MassInk</name>
   <id>game-dev.mass-ink-export-tool</id>
 
-  <param name="strings"
-        type="string"
-        multiline="true"
-        gui-text="Text lines (use | for line breaks)"/>
+  <effect needs-live-preview="false">
+    <param name="inputstrings"
+          type="string"
+          gui-text="Text lines"/>
 
-  <param name="prefix"
-        type="string"
-        gui-text="Filename prefix"
-        default="text_"/>
+    <param name="prefix"
+          type="string"
+          gui-text="Filename prefix"
+          default="text_"/>
 
-  <param name="output"
-        type="string"
-        multiline="false"
-        gui-text="Text lines (use | for line breaks)"/>
+    <param name="outputpath"
+          type="string"
+          gui-text="Output path"/>
 
-  <effect>
     <object-type>all</object-type>
     <effects-menu>
       <submenu name="Game Dev"/>
