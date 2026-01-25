@@ -25,3 +25,6 @@ dpi - integer of "dots per inch" setting for the image export resolution
 
 style - inkscapes/CSS/svg style format for styling text
 -note that this should include only text inside the quotation marks (use existing contents.json as an example)
+
+# Inkscape extension
+I attempted to create an inkscape extension for MassInk ... i gave up as inkscape has little to no documentation on extension development and from what i managed to write the inkex python system for custom extensions is not in a state that allows simple extension development ...
