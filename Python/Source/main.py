@@ -1,5 +1,5 @@
 inkscapePath = r"C:\Program Files\Inkscape\bin\inkscape.exe"
-contentsJsonpath = "Source/contents.json"
+contentsJsonpath = "Python/Source/contents.json"
 
 import shutil
 import pathlib
@@ -127,4 +127,4 @@ for i in range(len(contentStrings)):
     svgName = "output" + str(i) + ".svg"
     pngName = "output" + str(i) + ".png"
 
-    singleAssetPipeline("Source/style.svg", contentStrings[i], "Source/SVGs", svgName, inkscapePath, "Source/PNGs", pngName, contentStyle, dpi)
+    singleAssetPipeline("Python/Source/style.svg", contentStrings[i], "Python/Source/SVGs", svgName, inkscapePath, "Python/Source/PNGs", pngName, contentStyle, dpi)
